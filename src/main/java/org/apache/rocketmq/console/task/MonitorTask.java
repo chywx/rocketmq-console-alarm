@@ -39,16 +39,21 @@ public class MonitorTask {
     @Resource
     private ConsumerService consumerService;
 
-    @Scheduled(cron = "0 */1 * * * ?")
+    @Scheduled(cron = "0 */5 * * * ?")
     public void scanProblemConsumeGroup() {
-        System.out.println("chy:"+new Date());
+        System.out.println("chy每5秒监控一次");
         for (Map.Entry<String, ConsumerMonitorConfig> configEntry : monitorService.queryConsumerMonitorConfig().entrySet()) {
             GroupConsumeInfo consumeInfo = consumerService.queryGroup(configEntry.getKey());
             if (consumeInfo.getCount() < configEntry.getValue().getMinCount() || consumeInfo.getDiffTotal() > configEntry.getValue().getMaxDiffTotal()) {
-                logger.info("chy=look consumeInfo {}", JsonUtil.obj2String(consumeInfo)); // notify the alert system
-                DingDingSendMsg.send("消息堆积详情\n"+JsonUtil.obj2String(consumeInfo));
+//                logger.info("chy=look consumeInfo {}", JsonUtil.obj2String(consumeInfo)); // notify the alert system
+                String msg = "消息堆积详情"+
+                        "\ngroup→"+consumeInfo.getGroup()+
+                        "\ncount→"+consumeInfo.getCount()+
+                        "\nmessageModel→"+consumeInfo.getMessageModel()+
+                        "\nconsumeTps→"+consumeInfo.getConsumeTps()+
+                        "\ndiffTotal→"+consumeInfo.getDiffTotal();
+                DingDingSendMsg.send(msg);
             }
         }
     }
-
 }
