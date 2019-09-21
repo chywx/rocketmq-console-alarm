@@ -16,6 +16,7 @@
  */
 package org.apache.rocketmq.console.task;
 
+import java.util.Date;
 import java.util.Map;
 import javax.annotation.Resource;
 import org.apache.rocketmq.console.model.ConsumerMonitorConfig;
@@ -40,10 +41,12 @@ public class MonitorTask {
 
     @Scheduled(cron = "0 */1 * * * ?")
     public void scanProblemConsumeGroup() {
+        System.out.println("chy:"+new Date());
         for (Map.Entry<String, ConsumerMonitorConfig> configEntry : monitorService.queryConsumerMonitorConfig().entrySet()) {
             GroupConsumeInfo consumeInfo = consumerService.queryGroup(configEntry.getKey());
             if (consumeInfo.getCount() < configEntry.getValue().getMinCount() || consumeInfo.getDiffTotal() > configEntry.getValue().getMaxDiffTotal()) {
                 logger.info("chy=look consumeInfo {}", JsonUtil.obj2String(consumeInfo)); // notify the alert system
+                DingDingSendMsg.send("消息堆积详情\n"+JsonUtil.obj2String(consumeInfo));
             }
         }
     }
