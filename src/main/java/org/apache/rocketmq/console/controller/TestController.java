@@ -26,6 +26,7 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
+import org.apache.rocketmq.console.task.DingDingSendMsg;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 import java.util.List;
 import javax.annotation.Resource;
@@ -33,7 +34,9 @@ import org.apache.rocketmq.console.config.RMQConfigure;
 import org.apache.rocketmq.console.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,6 +49,17 @@ public class TestController {
 
     @Resource
     private RMQConfigure rMQConfigure;
+
+    @Autowired
+    DingDingSendMsg dingDingSendMsg;
+
+    @GetMapping("/aaa")
+    @ResponseBody
+    public Object aaa(){
+        dingDingSendMsg.aaa();
+        return true;
+    }
+
 
     @RequestMapping(value = "/runTask.do", method = RequestMethod.GET)
     @ResponseBody
