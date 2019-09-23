@@ -39,9 +39,9 @@ public class MonitorTask {
     @Resource
     private ConsumerService consumerService;
 
-    @Scheduled(cron = "0 */5 * * * ?")
+    @Scheduled(cron = "0 */1 * * * ?")
     public void scanProblemConsumeGroup() {
-        System.out.println("chy每5秒监控一次");
+        System.out.println("chy每1分钟监控一次");
         for (Map.Entry<String, ConsumerMonitorConfig> configEntry : monitorService.queryConsumerMonitorConfig().entrySet()) {
             GroupConsumeInfo consumeInfo = consumerService.queryGroup(configEntry.getKey());
             if (consumeInfo.getCount() < configEntry.getValue().getMinCount() || consumeInfo.getDiffTotal() > configEntry.getValue().getMaxDiffTotal()) {

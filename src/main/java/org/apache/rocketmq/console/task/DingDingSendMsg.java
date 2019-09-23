@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class DingDingSendMsg {
 
 //    云睿钉钉群
-    public static final String TOKEN = "0fa12a51a37466df312f420d4157a0648effe59bcd725522300edae853401f4f";
+    public static final String TOKEN = "***12a51a37466df312f420d4157a0648effe59bcd725522300edae853401f4f";
 
     public static DingTalkClient client = new DefaultDingTalkClient("https://oapi.dingtalk.com/robot/send?access_token="+TOKEN);
 
