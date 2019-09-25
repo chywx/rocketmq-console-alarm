@@ -43,8 +43,9 @@ java -jar rocketmq-console-ng-1.0.0.jar --server.port=6789 --rocketmq.config.nam
 1. dingding.phones:@人的手机号，所有的话使用all，多个人的话使用逗号`,`分隔
 
 
-![aaa](https://img-blog.csdnimg.cn/20190505092407771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9sb3VsdWFuLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70)
+![aaa](https://github.com/chywx/rocketmq-console-alarm/blob/master/src/main/resources/chy/2.png?raw=true)
 
 minCount 最少需要几个提供者
 maxDiffTotal 消息堆积量
 #### 效果
+![bbb](https://github.com/chywx/rocketmq-console-alarm/blob/master/src/main/resources/chy/1.png?raw=true)
