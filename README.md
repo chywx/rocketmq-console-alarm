@@ -25,9 +25,13 @@ public void scanProblemConsumeGroup() {
 ```
 
 ## 使用方式
-####下载打包
-```mvn clean package```
+#### 下载打包
+
+`cd project`
+`mvn clean package`
+
 #### 运行jar包
+
 ```$xslt
 cd target
 java -jar rocketmq-console-ng-1.0.0.jar --server.port=6789 --rocketmq.config.namesrvAddr=192.168.1.10:9876 --dingding.token=***12a51a37466df312f420d4157a
@@ -40,3 +44,7 @@ java -jar rocketmq-console-ng-1.0.0.jar --server.port=6789 --rocketmq.config.nam
 
 
 ![aaa](https://img-blog.csdnimg.cn/20190505092407771.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9sb3VsdWFuLmJsb2cuY3Nkbi5uZXQ=,size_16,color_FFFFFF,t_70)
+
+minCount 最少需要几个提供者
+maxDiffTotal 消息堆积量
+#### 效果
