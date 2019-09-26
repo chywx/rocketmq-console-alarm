@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-@ControllerAdvice(basePackages = "org.apache.rocketmq.console")
+@ControllerAdvice(basePackages = "cn.chendahai.rocketmq.console")
 public class GlobalExceptionHandler {
     private Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 

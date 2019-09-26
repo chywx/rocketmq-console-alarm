@@ -30,7 +30,7 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
-@ControllerAdvice(basePackages = "org.apache.rocketmq.console")
+@ControllerAdvice(basePackages = "cn.chendahai.rocketmq.console")
 public class GlobalRestfulResponseBodyAdvice implements ResponseBodyAdvice<Object> {
 
     private Logger logger = LoggerFactory.getLogger(GlobalRestfulResponseBodyAdvice.class);
