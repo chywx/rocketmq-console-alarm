@@ -8,8 +8,8 @@
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>1.4.3.RELEASE</version>
     </parent>
-    <groupId>org.apache</groupId>
-    <artifactId>rocketmq-console-ng</artifactId>
+    <groupId>cn.chendahai</groupId>
+    <artifactId>rocketmq-console-alarm</artifactId>
     <packaging>jar</packaging>
     <version>1.0.0</version>
     <name>rocketmq-console-ng</name>
