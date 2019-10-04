@@ -25,7 +25,6 @@ public class TopicConfigInfo {
     private List<String> clusterNameList;
     private List<String> brokerNameList;
 
-    /** topicConfig */
     private String topicName;
     private int writeQueueNums;
     private int readQueueNums;
@@ -40,7 +39,6 @@ public class TopicConfigInfo {
         this.clusterNameList = clusterNameList;
     }
 
-    /** topicConfig */
 
 
 

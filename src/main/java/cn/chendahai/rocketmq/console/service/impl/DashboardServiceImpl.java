@@ -34,7 +34,7 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Resource
     private DashboardCollectService dashboardCollectService;
-    /**
+    /*
      * @param date format yyyy-MM-dd
      */
     @Override
@@ -47,7 +47,7 @@ public class DashboardServiceImpl implements DashboardService {
         return dashboardCollectService.getTopicCache(date);
     }
 
-    /**
+    /*
      * @param date format yyyy-MM-dd
      * @param topicName
      */

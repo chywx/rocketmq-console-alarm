@@ -26,7 +26,7 @@ import org.apache.rocketmq.tools.admin.api.MessageTrack;
 import java.util.List;
 
 public interface MessageService {
-    /**
+    /*
      * @param subject
      * @param msgId
      */
@@ -34,7 +34,7 @@ public interface MessageService {
 
     List<MessageView> queryMessageByTopicAndKey(final String topic, final String key);
 
-    /**
+    /*
      * @param topic
      * @param begin
      * @param end
