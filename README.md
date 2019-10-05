@@ -1,3 +1,6 @@
+## 将jar包发布到中央仓库
+`mvn clean deploy '-Dmaven.test.skip=true'`
+
 ## 源地址
 > https://github.com/apache/rocketmq-externals/tree/master/rocketmq-console
 
