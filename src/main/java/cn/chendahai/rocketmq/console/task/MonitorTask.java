@@ -25,6 +25,7 @@ import cn.chendahai.rocketmq.console.service.MonitorService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -38,8 +39,9 @@ public class MonitorTask {
     @Resource
     private ConsumerService consumerService;
 
+
     @Autowired
-    DingDingSendMsg dingDingSendMsg;
+    private Environment environment;
 
     @Scheduled(cron = "0 */1 * * * ?")
     public void scanProblemConsumeGroup() {
@@ -54,7 +56,7 @@ public class MonitorTask {
                         "\nmessageModel→"+consumeInfo.getMessageModel()+
                         "\nconsumeTps→"+consumeInfo.getConsumeTps()+
                         "\ndiffTotal→"+consumeInfo.getDiffTotal();
-                dingDingSendMsg.send(msg);
+                DingDingSendMsg.sendText(msg,environment.getProperty("dingding.token"),environment.getProperty("dingding.phone"),false);
             }
         }
     }

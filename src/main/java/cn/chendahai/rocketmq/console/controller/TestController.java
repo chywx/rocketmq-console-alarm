@@ -16,6 +16,8 @@
  */
 package cn.chendahai.rocketmq.console.controller;
 
+import cn.chendahai.rocketmq.console.task.DingDingSendMsg;
+import java.util.Map;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -26,7 +28,6 @@ import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
-import cn.chendahai.rocketmq.console.task.DingDingSendMsg;
 import org.apache.rocketmq.remoting.exception.RemotingException;
 import java.util.List;
 import javax.annotation.Resource;
@@ -35,6 +36,7 @@ import cn.chendahai.rocketmq.console.util.JsonUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -51,13 +53,13 @@ public class TestController {
     private RMQConfigure rMQConfigure;
 
     @Autowired
-    DingDingSendMsg dingDingSendMsg;
+    Environment environment;
 
-    @GetMapping("/aaa")
+
+    @RequestMapping("/chy")
     @ResponseBody
-    public Object aaa(){
-        dingDingSendMsg.aaa();
-        return true;
+    public Map<String, Object> chy(){
+        return DingDingSendMsg.sendText("dahai",environment.getProperty("dingding.token"),environment.getProperty("dingding.phone"),false);
     }
 
 

@@ -37,8 +37,8 @@ public void scanProblemConsumeGroup() {
 
 ```$xslt
 cd target
-java -jar rocketmq-console-ng-1.0.0.jar --server.port=6789 --rocketmq.config.namesrvAddr=192.168.1.10:9876 --dingding.token=***12a51a37466df312f420d4157a
-0648effe59bcd725522300edae853401f4f --dingding.phones=***21939122
+java -jar rocketmq-console-alarm-1.0.3.jar --server.port=6789 --rocketmq.config.namesrvAddr=192.168.1.10:9876 --dingding.token=***12a51a37466df312f420d4157a
+0648effe59bcd725522300edae853401f4f --dingding.phones=13121939122
 ```
 1. server.port:指定端口号
 1. rocketmq.config.namesrvAddr:指定rocketmq地址，多个使用分号`;`分隔
